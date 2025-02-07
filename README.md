@@ -24,7 +24,7 @@ To set up and run the project locally, follow these steps:
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-repo/greencode-website.git
+   git clone https://github.com/ektemfg/greencode-website.git
    cd greencode-website
    ```
 
