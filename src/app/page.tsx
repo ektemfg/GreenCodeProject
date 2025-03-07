@@ -24,9 +24,19 @@ export const metadata: Metadata = {
 
 function Hero() {
   return (
-    <div className="relative">
-      <Gradient className="absolute inset-2 bottom-0 rounded-4xl ring-1 ring-black/5 ring-inset" />
-      <Container className="relative">
+    <div className="relative overflow-hidden bg-gradient-to-b from-emerald-800 to-emerald-950 h-screen">
+      <video
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster="/assets/green-background-poster.jpg"
+      >
+        <source src="/assets/green-background.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-emerald-950/30 z-10"></div>
+      <Container className="relative z-20">
         <Navbar
           banner={
             <Link
@@ -39,15 +49,15 @@ function Hero() {
           }
         />
         <div className="pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-32 md:pb-48">
-          <h1 className="font-display text-6xl/[0.9] font-medium tracking-tight text-balance text-emerald-950 sm:text-8xl/[0.8] md:text-9xl/[0.8]">
-            Code greener.
+          <h1 className="font-mono text-3xl/[0.9] font-medium tracking-tight text-balance text-white sm:text-5xl/[0.8] md:text-8xl/[0.8]">
+            500 Climate Error
           </h1>
-          <p className="mt-8 max-w-lg text-xl/7 font-medium text-emerald-950/75 sm:text-2xl/8">
+          <p className="mt-8 max-w-lg text-xl/7 font-medium text-white/90 sm:text-2xl/8">
             Grønnskalle helps developers optimize their code for sustainability and reduce the environmental impact of software.
           </p>
           <div className="mt-12 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
             <Button href="#">Start optimizing</Button>
-            <Button variant="secondary" href="/resources">
+            <Button variant="secondary" href="/resources" className="border-white text-white hover:bg-white/10">
               Best practices
             </Button>
           </div>
