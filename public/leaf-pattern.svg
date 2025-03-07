@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor" fill-rule="evenodd" opacity="0.8">
+    <!-- Main leaf -->
+    <path d="M50 20c0 0-15 15-15 30c0 8.284 6.716 15 15 15c8.284 0 15-6.716 15-15 C65 35 50 20 50 20z M50 60c-5.523 0-10-4.477-10-10c0-10 10-20 10-20s10 10 10 20C60 55.523 55.523 60 50 60z"/>
+    
+    <!-- Small leaf top right -->
+    <path d="M75 15c0 0-8 8-8 16c0 4.418 3.582 8 8 8c4.418 0 8-3.582 8-8C83 23 75 15 75 15z M75 35c-2.761 0-5-2.239-5-5c0-5 5-10 5-10s5 5 5 10C80 32.761 77.761 35 75 35z" transform="rotate(45, 75, 25)"/>
+    
+    <!-- Small leaf bottom left -->
+    <path d="M25 65c0 0-8 8-8 16c0 4.418 3.582 8 8 8c4.418 0 8-3.582 8-8C33 73 25 65 25 65z M25 85c-2.761 0-5-2.239-5-5c0-5 5-10 5-10s5 5 5 10C30 82.761 27.761 85 25 85z" transform="rotate(-135, 25, 75)"/>
+    
+    <!-- Stem details -->
+    <path d="M50 60c0 0-1 5-1 10" stroke="currentColor" stroke-width="1" fill="none"/>
+    <path d="M75 35c0 0-1 3-1 6" stroke="currentColor" stroke-width="0.7" fill="none"/>
+    <path d="M25 85c0 0-1 3-1 6" stroke="currentColor" stroke-width="0.7" fill="none"/>
+  </g>
+</svg> 
