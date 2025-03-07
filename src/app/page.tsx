@@ -19,37 +19,46 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   description:
-    'Grønnskalle helps you sell more by revealing sensitive information about your customers.',
+    'Grønnskalle helps developers optimize their code to minimize climate impact and create more sustainable software.',
 }
 
 function Hero() {
   return (
-    <div className="relative">
-      <Gradient className="absolute inset-2 bottom-0 rounded-4xl ring-1 ring-black/5 ring-inset" />
-      <Container className="relative">
+    <div className="relative overflow-hidden bg-gradient-to-b from-emerald-800 to-emerald-950 h-screen">
+      <video
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster="/assets/green-background-poster.jpg"
+      >
+        <source src="/assets/green-background.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-emerald-950/30 z-10"></div>
+      <Container className="relative z-20">
         <Navbar
           banner={
             <Link
-              href="/blog/gronnskalle-raises-100m-series-a-from-tailwind-ventures"
-              className="flex items-center gap-1 rounded-full bg-fuchsia-950/35 px-3 py-0.5 text-sm/6 font-medium text-white data-hover:bg-fuchsia-950/30"
+              href="/blog/latest-green-coding-practices"
+              className="flex items-center gap-1 rounded-full bg-green-950/35 px-3 py-0.5 text-sm/6 font-medium text-white data-hover:bg-green-950/30"
             >
-              Grønnskalle raises $100M Series A from Tailwind Ventures
+              Latest sustainable coding practices
               <ChevronRightIcon className="size-4" />
             </Link>
           }
         />
         <div className="pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-32 md:pb-48">
-          <h1 className="font-display text-6xl/[0.9] font-medium tracking-tight text-balance text-gray-950 sm:text-8xl/[0.8] md:text-9xl/[0.8]">
-            Close every deal.
+          <h1 className="font-mono text-3xl/[0.9] font-medium tracking-tight text-balance text-white sm:text-5xl/[0.8] md:text-8xl/[0.8]">
+            500 Climate Error
           </h1>
-          <p className="mt-8 max-w-lg text-xl/7 font-medium text-gray-950/75 sm:text-2xl/8">
-            Grønnskalle helps you sell more by revealing sensitive information about
-            your customers.
+          <p className="mt-8 max-w-lg text-xl/7 font-medium text-white/90 sm:text-2xl/8">
+            Grønnskalle helps developers optimize their code for sustainability and reduce the environmental impact of software.
           </p>
           <div className="mt-12 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
-            <Button href="#">Get started</Button>
-            <Button variant="secondary" href="/pricing">
-              See pricing
+            <Button href="#">Start optimizing</Button>
+            <Button variant="secondary" href="/resources" className="border-white text-white hover:bg-white/10">
+              Best practices
             </Button>
           </div>
         </div>
@@ -62,8 +71,8 @@ function FeatureSection() {
   return (
     <div className="overflow-hidden">
       <Container className="pb-24">
-        <Heading as="h2" className="max-w-3xl">
-          A snapshot of your entire sales pipeline.
+        <Heading as="h2" className="max-w-3xl text-emerald-950">
+          Practical strategies for sustainable development.
         </Heading>
         <Screenshot
           width={1216}
@@ -79,16 +88,16 @@ function FeatureSection() {
 function BentoSection() {
   return (
     <Container>
-      <Subheading>Sales</Subheading>
-      <Heading as="h3" className="mt-2 max-w-3xl">
-        Know more about your customers than they do.
+      <Subheading>Strategies</Subheading>
+      <Heading as="h3" className="mt-2 max-w-3xl text-emerald-950">
+        Optimize every line of code for environmental impact.
       </Heading>
 
       <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
         <BentoCard
-          eyebrow="Insight"
-          title="Get perfect clarity"
-          description="Grønnskalle uses social engineering to build a detailed financial picture of your leads. Know their budget, compensation package, social security number, and more."
+          eyebrow="Performance"
+          title="Efficient algorithms"
+          description="Learn how to optimize your algorithms and data structures to minimize computational resources, reducing energy consumption and carbon footprint."
           graphic={
             <div className="h-80 bg-[url(/screenshots/profile.png)] bg-[size:1000px_560px] bg-[left_-109px_top_-112px] bg-no-repeat" />
           }
@@ -96,9 +105,9 @@ function BentoSection() {
           className="max-lg:rounded-t-4xl lg:col-span-3 lg:rounded-tl-4xl"
         />
         <BentoCard
-          eyebrow="Analysis"
-          title="Undercut your competitors"
-          description="With our advanced data mining, you'll know which companies your leads are talking to and exactly how much they're being charged."
+          eyebrow="Architecture"
+          title="Sustainable cloud practices"
+          description="Discover how to design your infrastructure for minimal energy usage, from selecting green hosting providers to implementing efficient scaling strategies."
           graphic={
             <div className="absolute inset-0 bg-[url(/screenshots/competitors.png)] bg-[size:1100px_650px] bg-[left_-38px_top_-73px] bg-no-repeat" />
           }
@@ -106,9 +115,9 @@ function BentoSection() {
           className="lg:col-span-3 lg:rounded-tr-4xl"
         />
         <BentoCard
-          eyebrow="Speed"
-          title="Built for power users"
-          description="It's never been faster to cold email your entire contact list using our streamlined keyboard shortcuts."
+          eyebrow="Tools"
+          title="Developer resources"
+          description="Access our curated collection of tools and plugins that help measure and reduce the carbon impact of your development workflow."
           graphic={
             <div className="flex size-full pt-10 pl-10">
               <Keyboard highlighted={['LeftCommand', 'LeftShift', 'D']} />
@@ -117,18 +126,21 @@ function BentoSection() {
           className="lg:col-span-2 lg:rounded-bl-4xl"
         />
         <BentoCard
+          eyebrow="Metrics"
+          title="Measure your impact"
+          description="Grønnskalle helps you measure and monitor the environmental impact of your software development projects."
+          graphic={
+            <div className="h-80 bg-[url(/screenshots/metrics.png)] bg-[size:1000px_560px] bg-[left_-109px_top_-112px] bg-no-repeat" />
+          }
+          fade={['bottom']}
+          className="max-lg:rounded-b-4xl lg:col-span-3 lg:rounded-bl-4xl"
+        />
+        <BentoCard
           eyebrow="Source"
           title="Get the furthest reach"
           description="Bypass those inconvenient privacy laws to source leads from the most unexpected places."
           graphic={<LogoCluster />}
-          className="lg:col-span-2"
-        />
-        <BentoCard
-          eyebrow="Limitless"
-          title="Sell globally"
-          description="Grønnskalle helps you sell in locations currently under international embargo."
-          graphic={<Map />}
-          className="max-lg:rounded-b-4xl lg:col-span-2 lg:rounded-br-4xl"
+          className="lg:col-span-3"
         />
       </div>
     </Container>
