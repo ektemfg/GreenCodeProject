@@ -207,17 +207,14 @@ export default function Home() {
     <div className="overflow-hidden">
       <Hero />
       <main>
-        <Container className="mt-10">
-          <LogoCloud />
-        </Container>
-        <div className="bg-linear-to-b from-white from-50% to-gray-100 py-32">
+        <div className="bg-linear-to-b from-white from-50% to-gray-100 py-20">
           <FeatureSection />
           <BentoSection />
         </div>
         <DarkBentoSection />
       </main>
       <Testimonials />
-      <Footer />
+      <Footer showNewsletter={true} />
     </div>
   )
 }
