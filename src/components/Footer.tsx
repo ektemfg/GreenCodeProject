@@ -10,20 +10,19 @@ function CallToAction() {
   return (
     <div className="relative pt-20 pb-16 text-center sm:py-24">
       <hgroup>
-        <Subheading>Get started</Subheading>
-        <p className="mt-6 text-3xl font-medium tracking-tight text-gray-950 sm:text-5xl">
-          Ready to dive in?
+        <Subheading className="text-emerald-600">Join Our Mission</Subheading>
+        <p className="mt-6 text-3xl font-medium tracking-tight text-emerald-900 sm:text-5xl">
+          Ready to go green?
           <br />
-          Start your free trial today.
+          Start coding sustainably today.
         </p>
       </hgroup>
-      <p className="mx-auto mt-6 max-w-xs text-sm/6 text-gray-500">
-        Get the cheat codes for selling and unlock your team&apos;s revenue
-        potential.
+      <p className="mx-auto mt-6 max-w-xs text-sm/6 text-emerald-600">
+        Join the movement for sustainable software development and reduce your code's carbon footprint.
       </p>
       <div className="mt-6">
-        <Button className="w-full sm:w-auto" href="#">
-          Get started
+        <Button className="w-full bg-emerald-700 hover:bg-emerald-800 text-white sm:w-auto" href="#">
+          Start coding green
         </Button>
       </div>
     </div>
@@ -31,7 +30,7 @@ function CallToAction() {
 }
 
 function SitemapHeading({ children }: { children: React.ReactNode }) {
-  return <h3 className="text-sm/6 font-medium text-gray-950/50">{children}</h3>
+  return <h3 className="text-sm/6 font-medium text-emerald-900/80">{children}</h3>
 }
 
 function SitemapLinks({ children }: { children: React.ReactNode }) {
@@ -43,7 +42,7 @@ function SitemapLink(props: React.ComponentPropsWithoutRef<typeof Link>) {
     <li>
       <Link
         {...props}
-        className="font-medium text-gray-950 data-hover:text-gray-950/75"
+        className="font-medium text-emerald-700 hover:text-emerald-600 transition-colors"
       />
     </li>
   )
@@ -53,30 +52,30 @@ function Sitemap() {
   return (
     <>
       <div>
-        <SitemapHeading>Product</SitemapHeading>
+        <SitemapHeading>Solutions</SitemapHeading>
         <SitemapLinks>
-          <SitemapLink href="/pricing">Pricing</SitemapLink>
-          <SitemapLink href="#">Analysis</SitemapLink>
-          <SitemapLink href="#">API</SitemapLink>
+          <SitemapLink href="/efficiency">Code Efficiency</SitemapLink>
+          <SitemapLink href="#">Carbon Analysis</SitemapLink>
+          <SitemapLink href="#">Green API</SitemapLink>
         </SitemapLinks>
       </div>
       <div>
-        <SitemapHeading>Company</SitemapHeading>
+        <SitemapHeading>Resources</SitemapHeading>
         <SitemapLinks>
-          <SitemapLink href="#">Careers</SitemapLink>
-          <SitemapLink href="/blog">Blog</SitemapLink>
-          <SitemapLink href="/company">Company</SitemapLink>
+          <SitemapLink href="#">Green Patterns</SitemapLink>
+          <SitemapLink href="/blog">Tech Blog</SitemapLink>
+          <SitemapLink href="/about">About Us</SitemapLink>
         </SitemapLinks>
       </div>
       <div>
-        <SitemapHeading>Support</SitemapHeading>
+        <SitemapHeading>Community</SitemapHeading>
         <SitemapLinks>
-          <SitemapLink href="#">Help center</SitemapLink>
-          <SitemapLink href="#">Community</SitemapLink>
+          <SitemapLink href="#">Documentation</SitemapLink>
+          <SitemapLink href="#">Green Developers</SitemapLink>
         </SitemapLinks>
       </div>
       <div>
-        <SitemapHeading>Company</SitemapHeading>
+        <SitemapHeading>Legal</SitemapHeading>
         <SitemapLinks>
           <SitemapLink href="#">Terms of service</SitemapLink>
           <SitemapLink href="#">Privacy policy</SitemapLink>
@@ -121,7 +120,7 @@ function SocialLinks() {
         href="https://facebook.com"
         target="_blank"
         aria-label="Visit us on Facebook"
-        className="text-gray-950 data-hover:text-gray-950/75"
+        className="text-emerald-700 hover:text-emerald-600 transition-colors"
       >
         <SocialIconFacebook className="size-4" />
       </Link>
@@ -129,7 +128,7 @@ function SocialLinks() {
         href="https://x.com"
         target="_blank"
         aria-label="Visit us on X"
-        className="text-gray-950 data-hover:text-gray-950/75"
+        className="text-emerald-700 hover:text-emerald-600 transition-colors"
       >
         <SocialIconX className="size-4" />
       </Link>
@@ -137,7 +136,7 @@ function SocialLinks() {
         href="https://linkedin.com"
         target="_blank"
         aria-label="Visit us on LinkedIn"
-        className="text-gray-950 data-hover:text-gray-950/75"
+        className="text-emerald-700 hover:text-emerald-600 transition-colors"
       >
         <SocialIconLinkedIn className="size-4" />
       </Link>
@@ -147,25 +146,29 @@ function SocialLinks() {
 
 function Copyright() {
   return (
-    <div className="text-sm/6 text-gray-950">
-      &copy; {new Date().getFullYear()} Radiant Inc.
+    <div className="text-sm/6 text-emerald-700">
+      &copy; {new Date().getFullYear()} GrønnSkalle Technologies
     </div>
   )
 }
 
 export function Footer() {
   return (
-    <footer>
-      <Gradient className="relative">
-        <div className="absolute inset-2 rounded-4xl bg-white/80" />
-        <Container>
+    <footer className="relative overflow-hidden bg-gradient-to-b from-emerald-50 to-white">
+      <div className="absolute inset-0 bg-[url('/leaf-pattern.svg')] opacity-5 bg-repeat"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/20 via-transparent to-emerald-50/10"></div>
+      <div className="relative">
+        <div className="absolute inset-x-0 -top-40 -bottom-32 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]">
+          <div className="absolute inset-0 bg-gradient-to-r from-emerald-100/50 via-emerald-50/50 to-emerald-100/50"></div>
+        </div>
+        <Container className="relative">
           <CallToAction />
           <PlusGrid className="pb-16">
             <PlusGridRow>
               <div className="grid grid-cols-2 gap-y-10 pb-6 lg:grid-cols-6 lg:gap-8">
                 <div className="col-span-2 flex">
                   <PlusGridItem className="pt-6 lg:pb-6">
-                    <Logo className="h-9" />
+                    <Logo className="h-9 text-emerald-900" />
                   </PlusGridItem>
                 </div>
                 <div className="col-span-2 grid grid-cols-2 gap-x-8 gap-y-12 lg:col-span-4 lg:grid-cols-subgrid lg:pt-6">
@@ -173,7 +176,7 @@ export function Footer() {
                 </div>
               </div>
             </PlusGridRow>
-            <PlusGridRow className="flex justify-between">
+            <PlusGridRow className="flex justify-between border-t border-emerald-200/30 mt-8">
               <div>
                 <PlusGridItem className="py-3">
                   <Copyright />
@@ -187,7 +190,7 @@ export function Footer() {
             </PlusGridRow>
           </PlusGrid>
         </Container>
-      </Gradient>
+      </div>
     </footer>
   )
 }

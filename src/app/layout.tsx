@@ -23,7 +23,7 @@ export default function RootLayout({
         <link
           rel="alternate"
           type="application/rss+xml"
-          title="The Grønnskalle Blog"
+          title="Grønnskale Tech Blog"
           href="/blog/feed.xml"
         />
       </head>
