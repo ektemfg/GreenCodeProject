@@ -11,6 +11,7 @@ import { LogoCluster } from '@/components/logo-cluster'
 import { LogoTimeline } from '@/components/logo-timeline'
 import { Map } from '@/components/map'
 import { Navbar } from '@/components/navbar'
+import OsloAnalytic from '@/components/osloanalytic'
 import { Screenshot } from '@/components/screenshot'
 import { Testimonials } from '@/components/testimonials'
 import { Heading, Subheading } from '@/components/text'
@@ -207,17 +208,14 @@ export default function Home() {
     <div className="overflow-hidden">
       <Hero />
       <main>
-        <Container className="mt-10">
-          <LogoCloud />
-        </Container>
-        <div className="bg-linear-to-b from-white from-50% to-gray-100 py-32">
+        <div className="bg-linear-to-b from-white from-50% to-gray-100 py-20">
           <FeatureSection />
-          <BentoSection />
+          <OsloAnalytic />
         </div>
         <DarkBentoSection />
       </main>
       <Testimonials />
-      <Footer />
+      <Footer showNewsletter={true} />
     </div>
   )
 }
