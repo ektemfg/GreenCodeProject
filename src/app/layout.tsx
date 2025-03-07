@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: {
     template: '%s - Grønnskalle',
-    default: 'Grønnskalle - Close every deal',
+    default: 'Grønnskalle - Green Code for a Sustainable Future',
   },
 }
 
@@ -27,7 +27,7 @@ export default function RootLayout({
           href="/blog/feed.xml"
         />
       </head>
-      <body className="text-gray-950 antialiased">{children}</body>
+      <body className="text-emerald-950 bg-emerald-50/30 antialiased">{children}</body>
     </html>
   )
 }
