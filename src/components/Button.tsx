@@ -1,19 +1,46 @@
-import Link from 'next/link'
-import clsx from 'clsx'
+import * as Headless from '@headlessui/react'
+import { clsx } from 'clsx'
+import { Link } from './link'
 
-type ButtonProps =
+const variants = {
+  primary: clsx(
+    'inline-flex items-center justify-center px-4 py-[calc(--spacing(2)-1px)]',
+    'rounded-full border border-transparent bg-gray-950 shadow-md',
+    'text-base font-medium whitespace-nowrap text-white',
+    'data-disabled:bg-gray-950 data-disabled:opacity-40 data-hover:bg-gray-800',
+  ),
+  secondary: clsx(
+    'relative inline-flex items-center justify-center px-4 py-[calc(--spacing(2)-1px)]',
+    'rounded-full border border-transparent bg-white/15 ring-1 shadow-md ring-[#D15052]/15',
+    'after:absolute after:inset-0 after:rounded-full after:shadow-[inset_0_0_2px_1px_#ffffff4d]',
+    'text-base font-medium whitespace-nowrap text-gray-950',
+    'data-disabled:bg-white/15 data-disabled:opacity-40 data-hover:bg-white/20',
+  ),
+  outline: clsx(
+    'inline-flex items-center justify-center px-2 py-[calc(--spacing(1.5)-1px)]',
+    'rounded-lg border border-transparent ring-1 shadow-sm ring-black/10',
+    'text-sm font-medium whitespace-nowrap text-gray-950',
+    'data-disabled:bg-transparent data-disabled:opacity-40 data-hover:bg-gray-50',
+  ),
+}
+
+type ButtonProps = {
+  variant?: keyof typeof variants
+} & (
   | React.ComponentPropsWithoutRef<typeof Link>
-  | (React.ComponentPropsWithoutRef<'button'> & { href?: undefined })
+  | (Headless.ButtonProps & { href?: undefined })
+)
 
-export function Button({ className, ...props }: ButtonProps) {
-  className = clsx(
-    'inline-flex justify-center rounded-2xl bg-blue-600 p-4 text-base font-semibold text-white hover:bg-blue-500 focus:outline-hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:text-white/70',
-    className,
-  )
+export function Button({
+  variant = 'primary',
+  className,
+  ...props
+}: ButtonProps) {
+  className = clsx(className, variants[variant])
 
-  return typeof props.href === 'undefined' ? (
-    <button className={className} {...props} />
-  ) : (
-    <Link className={className} {...props} />
-  )
+  if (typeof props.href === 'undefined') {
+    return <Headless.Button {...props} className={className} />
+  }
+
+  return <Link {...props} className={className} />
 }
