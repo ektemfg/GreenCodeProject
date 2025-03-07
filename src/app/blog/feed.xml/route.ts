@@ -7,12 +7,12 @@ export async function GET(req: Request) {
   let siteUrl = new URL(req.url).origin
 
   let feed = new Feed({
-    title: 'The Grønnskalle Blog',
+    title: 'Grønnskale Tech Blog',
     description:
-      'Stay informed with product updates, company news, and insights on how to sell smarter at your company.',
+      'Deep technical articles about green software engineering, performance optimization, and building energy-efficient applications.',
     author: {
-      name: 'Michael Foster',
-      email: 'michael.foster@example.com',
+      name: 'Grønnskale Engineering Team',
+      email: 'engineering@gronnskale.dev',
     },
     id: siteUrl,
     link: siteUrl,
