@@ -1,76 +1,53 @@
-# GreenCode Website
 
-GreenCode Website is a dynamic platform dedicated to promoting sustainable software development. Our mission is to educate developers, students, and tech enthusiasts on energy-efficient coding practices through comprehensive guidelines, real-world case studies, and interactive resources.
+# Grønnskalle
 
-Built with [Next.js](https://nextjs.org), [Tailwind CSS](https://tailwindcss.com), and [Tailwind UI](https://tailwindui.com), the site combines modern web technologies with a clean, responsive design to deliver an engaging user experience.
+Grønnskalle is a [Tailwind Plus](https://tailwindcss.com/plus) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org), with a blog powered by [Sanity](https://www.sanity.io).
 
-## Project Overview
+## Getting started
 
-- **Green Coding Guidelines:** Detailed documentation on energy-efficient coding practices and sustainable development.
-- **Case Studies & Blogs:** Real-world examples and in-depth articles that showcase eco-friendly software solutions.
-- **Interactive Resources:** Downloadable toolkits and resources to help organizations implement sustainable practices.
-- **Responsive Design:** A mobile-first, accessible interface that ensures a seamless experience on any device.
+To get started with this project, first install the npm dependencies:
 
-## Technologies Used
+```bash
+npm install
+```
 
-- **Next.js:** A React framework that supports server-side rendering and static site generation.
-- **Tailwind CSS:** A utility-first CSS framework that accelerates UI development.
-- **Tailwind UI:** Pre-designed components that help us maintain a polished and consistent design.
+Next, create a new Sanity project to power the blog within this template:
 
-## Getting Started
+```bash
+npm create sanity@latest -- --env=.env.local --create-project "Grønnskalle Blog" --dataset production
+```
 
-To set up and run the project locally, follow these steps:
+This will prompt you to create a new Sanity account if you don't have one already. When asked "Would you like to add configuration files for a Sanity project in this Next.js folder?", choose "n".
 
-1. **Clone the Repository**
+Next, optionally import the demo seed data for the blog:
 
-   ```bash
-   git clone https://github.com/ektemfg/greencode-website.git
-   cd greencode-website
-   ```
+```bash
+npx sanity@latest dataset import seed.tar.gz
+```
 
-2. **Install Dependencies**
+Next, run the development server:
 
-   ```bash
-   npm install
-   ```
+```bash
+npm run dev
+```
 
-3. **Run the Development Server**
+Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
 
-   ```bash
-   npm run dev
-   ```
+To manage your blog content, visit the embedded Sanity Studio at [http://localhost:3000/studio](http://localhost:3000/studio).
 
-4. **View the Website**
+## Customizing
 
-   Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to see the site in action.
-
-## Customizing the Project
-
-The project is designed for easy customization:
-
-- **Source Code:** All editable files are located in the `/src` directory.
-- **Pages:** Customize your pages in `/src/pages`.
-- **Components:** Reusable UI components can be found in `/src/components`.
-- **Styles:** Tailwind CSS is configured via `tailwind.config.js`. Modify this file to adjust themes, colors, and breakpoints.
-
-Changes you make will be automatically reloaded in your development server, making customization seamless.
-
-## Contributing
-
-We welcome contributions to help enhance GreenCode Website. If you’d like to contribute:
-
-- Open an issue to discuss proposed changes.
-- Fork the repository, make your changes, and submit a pull request.
-- Follow our code style and commit message guidelines.
+You can start editing this template by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE). See the LICENSE file for more details.
+This site template is a commercial product and is licensed under the [Tailwind Plus license](https://tailwindcss.com/plus/license).
 
-## Learn More
+## Learn more
 
-For more details on the technologies powering this project, check out the following resources:
+To learn more about the technologies used in this site template, see the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Tailwind UI Documentation](https://tailwindui.com)
+- [Tailwind CSS](https://tailwindcss.com/docs) - the official Tailwind CSS documentation
+- [Next.js](https://nextjs.org/docs) - the official Next.js documentation
+- [Headless UI](https://headlessui.dev) - the official Headless UI documentation
+- [Sanity](https://www.sanity.io) - the Sanity website
