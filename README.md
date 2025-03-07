@@ -1,7 +1,15 @@
-
 # Grønnskalle
 
-Grønnskalle is a [Tailwind Plus](https://tailwindcss.com/plus) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org), with a blog powered by [Sanity](https://www.sanity.io).
+Grønnskalle is a resource platform built to help developers optimize their code for sustainability and reduce the environmental impact of software development. This project is built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org), with content powered by [Sanity](https://www.sanity.io).
+
+## Mission
+
+Our mission is to educate and empower developers to create more sustainable software through:
+
+- Efficient algorithm design and implementation
+- Sustainable cloud infrastructure practices
+- Resource-conscious development workflows
+- Metrics and monitoring for environmental impact
 
 ## Getting started
 
@@ -11,19 +19,13 @@ To get started with this project, first install the npm dependencies:
 npm install
 ```
 
-Next, create a new Sanity project to power the blog within this template:
+Next, create a new Sanity project to power the content:
 
 ```bash
-npm create sanity@latest -- --env=.env.local --create-project "Grønnskalle Blog" --dataset production
+npm create sanity@latest -- --env=.env.local --create-project "Grønnskalle Content" --dataset production
 ```
 
 This will prompt you to create a new Sanity account if you don't have one already. When asked "Would you like to add configuration files for a Sanity project in this Next.js folder?", choose "n".
-
-Next, optionally import the demo seed data for the blog:
-
-```bash
-npx sanity@latest dataset import seed.tar.gz
-```
 
 Next, run the development server:
 
@@ -33,7 +35,7 @@ npm run dev
 
 Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
 
-To manage your blog content, visit the embedded Sanity Studio at [http://localhost:3000/studio](http://localhost:3000/studio).
+To manage your content, visit the embedded Sanity Studio at [http://localhost:3000/studio](http://localhost:3000/studio).
 
 ## Customizing
 
