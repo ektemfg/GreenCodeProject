@@ -1,10 +1,10 @@
-import { AnimatedNumber } from '@/components/animated-number'
-import { Button } from '@/components/button'
-import { Container } from '@/components/container'
-import { Footer } from '@/components/footer'
-import { GradientBackground } from '@/components/gradient'
-import { Navbar } from '@/components/navbar'
-import { Heading, Lead, Subheading } from '@/components/text'
+import { AnimatedNumber } from '@/components/AnimatedNumber'
+import { Button } from '@/components/Button'
+import { Container } from '@/components/Container'
+import { Footer } from '@/components/Footer'
+import { GradientBackground } from '@/components/Gradient'
+import { Navbar } from '@/components/Navbar'
+import { Heading, Lead, Subheading } from '@/components/Text'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {

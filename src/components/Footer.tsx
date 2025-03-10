@@ -1,10 +1,9 @@
-import { PlusGrid, PlusGridItem, PlusGridRow } from '@/components/plus-grid'
-import { Button } from './button'
-import { Container } from './container'
-import { Gradient } from './gradient'
-import { Link } from './link'
-import { Logo } from './logo'
-import { Subheading } from './text'
+import { PlusGrid, PlusGridItem, PlusGridRow } from '@/components/PlusGrid'
+import { Button } from '@/components/Button'
+import { Container } from '@/components/Container'
+import { Link } from '@/components/Link'
+import { Logo } from '@/components/Logo'
+import { Subheading } from '@/components/Text'
 
 function CallToAction() {
   return (
@@ -171,7 +170,7 @@ export function Footer({ showNewsletter = true }: { showNewsletter?: boolean }) 
             <div className="grid grid-cols-2 gap-y-10 pb-6 lg:grid-cols-6 lg:gap-8">
               <div className="col-span-2 flex">
                 <PlusGridItem className="pt-6 lg:pb-6">
-                  <Logo className="h-9" />
+                  <Logo className="h-9 fill-white" />
                 </PlusGridItem>
               </div>
             </div>
