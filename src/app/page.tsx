@@ -1,20 +1,18 @@
-import { BentoCard } from '@/components/bento-card'
+import { AnimatedNumber } from '@/components/AnimatedNumber'
+import { BentoCard } from '@/components/BentoCard'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Footer } from '@/components/Footer'
-import { Gradient } from '@/components/gradient'
-import { Keyboard } from '@/components/keyboard'
-import { Link } from '@/components/link'
-import { LinkedAvatars } from '@/components/linked-avatars'
-import { LogoCloud } from '@/components/logo-cloud'
-import { LogoCluster } from '@/components/logo-cluster'
-import { LogoTimeline } from '@/components/logo-timeline'
-import { Map } from '@/components/map'
-import { Navbar } from '@/components/navbar'
-import OsloAnalytic from '@/components/osloanalytic'
-import { Screenshot } from '@/components/screenshot'
-import { Testimonials } from '@/components/testimonials'
-import { Heading, Subheading } from '@/components/text'
+import RecentArticles from '@/components/RecentArticles'
+import { Keyboard } from '@/components/Keyboard'
+import { Link } from '@/components/Link'
+import { LinkedAvatars } from '@/components/LinkedAvatars'
+import { LogoCluster } from '@/components/LogoCluster'
+import { LogoTimeline } from '@/components/LogoTimeline'
+import { Navbar } from '@/components/Navbar'
+import OsloAnalytic from '@/components/OsloAnalytic'
+import { Screenshot } from '@/components/Screenshot'
+import { Heading, Lead, Subheading } from '@/components/Text'
 import { ChevronRightIcon } from '@heroicons/react/16/solid'
 import type { Metadata } from 'next'
 
@@ -48,6 +46,7 @@ function Hero() {
               <ChevronRightIcon className="size-4" />
             </Link>
           }
+          whiteLogo={true}
         />
         <div className="pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-32 md:pb-48">
           <h1 className="font-mono text-3xl/[0.9] font-medium tracking-tight text-balance text-white sm:text-5xl/[0.8] md:text-8xl/[0.8]">
@@ -203,18 +202,107 @@ function DarkBentoSection() {
   )
 }
 
+function Header() {
+  return (
+    <Container className="mt-16">
+      <Heading as="h1">Sustainable code for a greener future.</Heading>
+      <Lead className="mt-6 max-w-3xl">
+        We're on a mission to help developers reduce their carbon footprint through
+        efficient, optimized, and environmentally conscious coding practices.
+      </Lead>
+      <section className="mt-16 grid grid-cols-1 lg:grid-cols-2 lg:gap-12">
+        <div className="max-w-lg">
+          <h2 className="text-2xl font-medium tracking-tight">Our mission</h2>
+          <p className="mt-6 text-sm/6 text-gray-600">
+            At Grønnskalle, we're dedicated to transforming how developers approach their craft with sustainability in mind.
+            Our mission is to provide simple, practical tips and techniques that reduce the environmental impact of software.
+            We believe that small optimizations, when widely adopted, can lead to significant energy savings across the digital landscape.
+          </p>
+          <p className="mt-8 text-sm/6 text-gray-600">
+            We're developer-focused — providing actionable insights that are easy to implement in your daily workflow.
+            From optimizing database queries to efficient frontend rendering, our resources help you create code
+            that not only performs better but also consumes less energy. Join our community of environmentally
+            conscious developers who are coding for a more sustainable digital future.
+          </p>
+        </div>
+        <div className="pt-20 lg:row-span-2 lg:-mr-16 xl:mr-auto">
+          <div className="-mx-8 grid grid-cols-2 gap-4 sm:-mx-16 sm:grid-cols-4 lg:mx-0 lg:grid-cols-2 lg:gap-4 xl:gap-8">
+            <div className="aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10">
+              <img
+                alt=""
+                src="/assets/factory.webp"
+                className="block size-full object-cover"
+              />
+            </div>
+            <div className="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10 lg:-mt-32">
+              <img
+                alt=""
+                src="/assets/network.webp"
+                className="block size-full object-cover"
+              />
+            </div>
+            <div className="aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10">
+              <img
+                alt=""
+                src="/assets/poster.webp"
+                className="block size-full object-cover"
+              />
+            </div>
+            <div className="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10 lg:-mt-32">
+              <img
+                alt=""
+                src="/assets/data1.webp"
+                className="block size-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="max-lg:mt-16 lg:col-span-1">
+          <Subheading>The Numbers</Subheading>
+          <hr className="mt-6 border-t border-gray-200" />
+          <dl className="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
+            <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
+              <dt className="text-sm/6 text-gray-600">CO₂ Emissions from ICT</dt>
+              <dd className="order-first text-6xl font-medium tracking-tight">
+                <AnimatedNumber start={1.5} end={3.7} decimals={1} />%
+              </dd>
+            </div>
+            <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
+              <dt className="text-sm/6 text-gray-600">Data Center Energy Use</dt>
+              <dd className="order-first text-6xl font-medium tracking-tight">
+                <AnimatedNumber start={150} end={200} />TWh
+              </dd>
+            </div>
+            <div className="flex flex-col gap-y-2 max-sm:border-b max-sm:border-dotted max-sm:border-gray-200 max-sm:pb-4">
+              <dt className="text-sm/6 text-gray-600">Potential Energy Savings</dt>
+              <dd className="order-first text-6xl font-medium tracking-tight">
+                <AnimatedNumber start={30} end={50} />%
+              </dd>
+            </div>
+            <div className="flex flex-col gap-y-2">
+              <dt className="text-sm/6 text-gray-600">Annual e-Waste</dt>
+              <dd className="order-first text-6xl font-medium tracking-tight">
+                <AnimatedNumber start={40} end={54} />M tons
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+    </Container>
+  )
+}
+
 export default function Home() {
   return (
     <div className="overflow-hidden">
       <Hero />
       <main>
         <div className="bg-linear-to-b from-white from-50% to-gray-100 py-20">
-          <FeatureSection />
-          <OsloAnalytic />
+          <Header />
+          <RecentArticles />
         </div>
-        <DarkBentoSection />
+        <OsloAnalytic />
       </main>
-      <Testimonials />
       <Footer showNewsletter={true} />
     </div>
   )
