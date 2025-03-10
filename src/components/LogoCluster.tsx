@@ -2,7 +2,7 @@
 
 import { clsx } from 'clsx'
 import { motion } from 'framer-motion'
-import { Mark } from './logo'
+import { Mark } from '@/components/Logo'
 
 function Circle({
   size,
