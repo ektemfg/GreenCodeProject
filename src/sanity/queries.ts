@@ -62,9 +62,31 @@ const FEATURED_POSTS_QUERY = defineQuery(/* groq */ `*[
   },
 }`)
 
+const MOST_RECENT_POSTS_QUERY = defineQuery(/* groq */ `*[
+  _type == "post"
+  && defined(slug.current)
+]|order(publishedAt desc)[0...$quantity]{
+  title,
+  "slug": slug.current,
+  publishedAt,
+  mainImage,
+  excerpt,
+  author->{
+    name,
+    image,
+  },
+}`)
+
 export async function getFeaturedPosts(quantity: number) {
   return await sanityFetch({
     query: FEATURED_POSTS_QUERY,
+    params: { quantity },
+  })
+}
+
+export async function getMostRecentPosts(quantity: number) {
+  return await sanityFetch({
+    query: MOST_RECENT_POSTS_QUERY,
     params: { quantity },
   })
 }

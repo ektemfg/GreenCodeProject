@@ -1,9 +1,9 @@
-import { Button } from '@/components/button'
-import { Container } from '@/components/container'
-import { Footer } from '@/components/footer'
-import { Link } from '@/components/link'
-import { Navbar } from '@/components/navbar'
-import { Heading, Lead, Subheading } from '@/components/text'
+import { Button } from '@/components/Button'
+import { Container } from '@/components/Container'
+import { Footer } from '@/components/Footer'
+import { Link } from '@/components/Link'
+import { Navbar } from '@/components/Navbar'
+import { Heading, Lead, Subheading } from '@/components/Text'
 import { image } from '@/sanity/image'
 import {
   getCategories,
@@ -267,9 +267,9 @@ async function Pagination({
           </Link>
         ))}
       </div>
-      <Button 
-        variant="outline" 
-        href={nextPageUrl} 
+      <Button
+        variant="outline"
+        href={nextPageUrl}
         disabled={!nextPageUrl}
         className="text-emerald-700 hover:bg-emerald-50 border-emerald-200 disabled:opacity-50"
       >
@@ -302,14 +302,14 @@ export default async function Blog({
       <div className="fixed inset-0 bg-gradient-to-b from-emerald-50/70 via-white to-emerald-50/30"></div>
       <div className="fixed inset-0 bg-[url('/leaf-pattern.svg')] opacity-5 bg-repeat"></div>
       <div className="absolute inset-0 bg-gradient-radial from-emerald-100/30 via-transparent to-transparent"></div>
-      
+
       <div className="relative">
         <Container>
           <Navbar />
           <div className="relative">
             <div className="absolute -left-32 top-0 h-64 w-64 rounded-full bg-emerald-100/30 blur-3xl"></div>
             <div className="absolute -right-32 top-20 h-64 w-64 rounded-full bg-emerald-50/40 blur-3xl"></div>
-            
+
             <Subheading className="mt-16 text-emerald-700">GrønnSkalle Tech Blog</Subheading>
             <Heading as="h1" className="mt-2 bg-gradient-to-br from-emerald-900 to-emerald-700 bg-clip-text text-transparent">
               Sustainable Code Insights
@@ -318,7 +318,7 @@ export default async function Blog({
               Explore the intersection of technology and sustainability. Deep dive into green software engineering,
               eco-friendly architectures, and building energy-efficient applications that make a difference.
             </Lead>
-            
+
             <div className="mt-8 flex items-center gap-4">
               <Button href="/blog/latest" className="bg-emerald-700 hover:bg-emerald-800 text-white">
                 Latest Articles
@@ -326,7 +326,7 @@ export default async function Blog({
             </div>
           </div>
         </Container>
-        
+
         {page === 1 && !category && (
           <>
             <div className="absolute left-1/2 top-1/3 -z-10 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/3">
@@ -335,14 +335,14 @@ export default async function Blog({
             <FeaturedPosts />
           </>
         )}
-        
+
         <Container className="relative mt-16 pb-24">
           <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/10 to-transparent"></div>
           <Categories selected={category} />
           <Posts page={page} category={category} />
           <Pagination page={page} category={category} />
         </Container>
-        
+
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-t from-emerald-50/30 to-transparent"></div>
           <Footer />
