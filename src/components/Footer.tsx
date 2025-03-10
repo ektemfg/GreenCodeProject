@@ -154,7 +154,7 @@ function SocialLinks() {
 function Copyright() {
   return (
     <div className="text-sm/6 text-white/80">
-      &copy; {new Date().getFullYear()} Radiant Inc.
+      &copy; {new Date().getFullYear()} Grønskalle
     </div>
   )
 }
