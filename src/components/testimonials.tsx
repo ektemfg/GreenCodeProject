@@ -14,8 +14,8 @@ import {
 import { useCallback, useLayoutEffect, useRef, useState } from 'react'
 import useMeasure, { type RectReadOnly } from 'react-use-measure'
 import { Container } from '@/components/Container'
-import { Link } from './Link'
-import { Heading, Subheading } from './Text'
+import { Link } from '@/components/Link'
+import { Heading, Subheading } from '@/components/Text'
 
 const testimonials = [
   {
