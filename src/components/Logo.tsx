@@ -1,8 +1,5 @@
 'use client'
 
-import { clsx } from 'clsx'
-import Image from 'next/image'
-
 export function Logo({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 194.43 48" className={className}>
