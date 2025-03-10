@@ -79,6 +79,7 @@ export type Post = {
   publishedAt?: string
   isFeatured?: boolean
   author?: {
+    image: any
     _ref: string
     _type: 'reference'
     _weak?: boolean
@@ -106,36 +107,41 @@ export type Post = {
   excerpt?: string
   body?: Array<
     | {
-        children?: Array<{
-          marks?: Array<string>
-          text?: string
-          _type: 'span'
-          _key: string
-        }>
-        style?: 'normal' | 'h2' | 'h3' | 'blockquote'
-        listItem?: 'bullet' | 'number'
-        markDefs?: Array<{
-          href?: string
-          _type: 'link'
-          _key: string
-        }>
-        level?: number
-        _type: 'block'
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
         _key: string
-      }
+      }>
+      style?: 'normal' | 'h2' | 'h3' | 'blockquote'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }
     | {
-        asset?: {
-          _ref: string
-          _type: 'reference'
-          _weak?: boolean
-          [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-        }
-        hotspot?: SanityImageHotspot
-        crop?: SanityImageCrop
-        alt?: string
-        _type: 'image'
-        _key: string
+      style?: 'line' | 'space'
+      _type: 'separator'
+      _key: string
+    }
+    | {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
       }
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      alt?: string
+      _type: 'image'
+      _key: string
+    }
   >
 }
 
@@ -178,36 +184,41 @@ export type Slug = {
 
 export type BlockContent = Array<
   | {
-      children?: Array<{
-        marks?: Array<string>
-        text?: string
-        _type: 'span'
-        _key: string
-      }>
-      style?: 'normal' | 'h2' | 'h3' | 'blockquote'
-      listItem?: 'bullet' | 'number'
-      markDefs?: Array<{
-        href?: string
-        _type: 'link'
-        _key: string
-      }>
-      level?: number
-      _type: 'block'
+    children?: Array<{
+      marks?: Array<string>
+      text?: string
+      _type: 'span'
       _key: string
-    }
+    }>
+    style?: 'normal' | 'h2' | 'h3' | 'blockquote'
+    listItem?: 'bullet' | 'number'
+    markDefs?: Array<{
+      href?: string
+      _type: 'link'
+      _key: string
+    }>
+    level?: number
+    _type: 'block'
+    _key: string
+  }
   | {
-      asset?: {
-        _ref: string
-        _type: 'reference'
-        _weak?: boolean
-        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-      }
-      hotspot?: SanityImageHotspot
-      crop?: SanityImageCrop
-      alt?: string
-      _type: 'image'
-      _key: string
+    style?: 'line' | 'space'
+    _type: 'separator'
+    _key: string
+  }
+  | {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
     }
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    alt?: string
+    _type: 'image'
+    _key: string
+  }
 >
 
 export type SanityImageCrop = {
@@ -344,6 +355,40 @@ export type FEATURED_POSTS_QUERYResult = Array<{
     } | null
   } | null
 }>
+// Variable: MOST_RECENT_POSTS_QUERY
+// Query: *[  _type == "post"  && defined(slug.current)]|order(publishedAt desc)[0...$quantity]{  title,  "slug": slug.current,  publishedAt,  mainImage,  excerpt,  author->{    name,    image,  },}
+export type MOST_RECENT_POSTS_QUERYResult = Array<{
+  title: string | null
+  slug: string | null
+  publishedAt: string | null
+  mainImage: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    alt?: string
+    _type: 'image'
+  } | null
+  excerpt: string | null
+  author: {
+    name: string | null
+    image: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      _type: 'image'
+    } | null
+  } | null
+}>
 // Variable: FEED_POSTS_QUERY
 // Query: *[  _type == "post"  && defined(slug.current)]|order(isFeatured, publishedAt desc){  title,  "slug": slug.current,  publishedAt,  mainImage,  excerpt,  author->{    name,  },}
 export type FEED_POSTS_QUERYResult = Array<{
@@ -387,36 +432,41 @@ export type POST_QUERYResult = {
   excerpt: string | null
   body: Array<
     | {
-        children?: Array<{
-          marks?: Array<string>
-          text?: string
-          _type: 'span'
-          _key: string
-        }>
-        style?: 'blockquote' | 'h2' | 'h3' | 'normal'
-        listItem?: 'bullet' | 'number'
-        markDefs?: Array<{
-          href?: string
-          _type: 'link'
-          _key: string
-        }>
-        level?: number
-        _type: 'block'
+      children?: Array<{
+        marks?: Array<string>
+        text?: string
+        _type: 'span'
         _key: string
-      }
+      }>
+      style?: 'blockquote' | 'h2' | 'h3' | 'normal'
+      listItem?: 'bullet' | 'number'
+      markDefs?: Array<{
+        href?: string
+        _type: 'link'
+        _key: string
+      }>
+      level?: number
+      _type: 'block'
+      _key: string
+    }
     | {
-        asset?: {
-          _ref: string
-          _type: 'reference'
-          _weak?: boolean
-          [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-        }
-        hotspot?: SanityImageHotspot
-        crop?: SanityImageCrop
-        alt?: string
-        _type: 'image'
-        _key: string
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
       }
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      alt?: string
+      _type: 'image'
+      _key: string
+    }
+    | {
+      style?: 'line' | 'space'
+      _type: 'separator'
+      _key: string
+    }
   > | null
   author: {
     name: string | null
@@ -451,6 +501,7 @@ declare module '@sanity/client' {
     'count(*[\n  _type == "post"\n  && defined(slug.current)\n  && (isFeatured != true || defined($category))\n  && select(defined($category) => $category in categories[]->slug.current, true)\n])': TOTAL_POSTS_QUERYResult
     '*[\n  _type == "post"\n  && defined(slug.current)\n  && (isFeatured != true || defined($category))\n  && select(defined($category) => $category in categories[]->slug.current, true)\n]|order(publishedAt desc)[$startIndex...$endIndex]{\n  title,\n  "slug": slug.current,\n  publishedAt,\n  excerpt,\n  author->{\n    name,\n    image,\n  },\n}': POSTS_QUERYResult
     '*[\n  _type == "post"\n  && isFeatured == true\n  && defined(slug.current)\n]|order(publishedAt desc)[0...$quantity]{\n  title,\n  "slug": slug.current,\n  publishedAt,\n  mainImage,\n  excerpt,\n  author->{\n    name,\n    image,\n  },\n}': FEATURED_POSTS_QUERYResult
+    '*[\n  _type == "post"\n  && defined(slug.current)\n]|order(publishedAt desc)[0...$quantity]{\n  title,\n  "slug": slug.current,\n  publishedAt,\n  mainImage,\n  excerpt,\n  author->{\n    name,\n    image,\n  },\n}': MOST_RECENT_POSTS_QUERYResult
     '*[\n  _type == "post"\n  && defined(slug.current)\n]|order(isFeatured, publishedAt desc){\n  title,\n  "slug": slug.current,\n  publishedAt,\n  mainImage,\n  excerpt,\n  author->{\n    name,\n  },\n}': FEED_POSTS_QUERYResult
     '*[\n  _type == "post"\n  && slug.current == $slug\n][0]{\n  publishedAt,\n  title,\n  mainImage,\n  excerpt,\n  body,\n  author->{\n    name,\n    image,\n  },\n  categories[]->{\n    title,\n    "slug": slug.current,\n  }\n}\n': POST_QUERYResult
     '*[\n  _type == "category"\n  && count(*[_type == "post" && defined(slug.current) && ^._id in categories[]._ref]) > 0\n]|order(title asc){\n  title,\n  "slug": slug.current,\n}': CATEGORIES_QUERYResult

@@ -4,19 +4,12 @@ import relativeTime from "dayjs/plugin/relativeTime"
 import { image } from '@/sanity/image'
 import Link from "next/link"
 import { Container } from "@/components/Container"
-import type { Post } from "@/sanity/types"
-import { Heading } from "@/components/Text"
+import type { MOST_RECENT_POSTS_QUERYResult } from "@/sanity/types"
 import { Gradient } from "@/components/Gradient"
-import { LogoCloud } from "@/components/LogoCloud"
-
-// Initialize dayjs relative time plugin
 dayjs.extend(relativeTime)
 
-// Function to strip markdown formatting
 function stripMarkdown(text: string | null | undefined): string {
   if (!text) return '';
-
-  // Remove headers, bold, italic, links, code blocks, lists, etc.
   return text
     .replace(/#{1,6}\s/g, '') // headers
     .replace(/\*\*(.*?)\*\*/g, '$1') // bold
@@ -30,18 +23,14 @@ function stripMarkdown(text: string | null | undefined): string {
 }
 
 
-// Function to truncate text
 function truncateText(text: string | null | undefined, maxLength: number = 300): string {
   if (!text) return '';
-
   if (text.length <= maxLength) return text;
-
   return text.slice(0, maxLength) + '...';
 }
 
 export default async function RecentArticles() {
-  let recentPosts = await getMostRecentPosts(3)
-
+  let recentPosts: MOST_RECENT_POSTS_QUERYResult = await getMostRecentPosts(3);
   if (recentPosts.length === 0) {
     return
   }
@@ -54,12 +43,12 @@ export default async function RecentArticles() {
       <Gradient className="absolute inset-x-2 top-72 bottom-0 rounded-4xl ring-1 ring-black/5 ring-inset" />
       <Container className="relative pb-24">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          {recentPosts.map((post: Post) => (
+          {recentPosts.map((post) => (
             <div
-              key={post.slug?.current}
+              key={post?.slug}
               className="group relative flex flex-col rounded-3xl bg-white/90 p-2 ring-1 shadow-md hover:shadow-emerald-100 transition-all duration-300 shadow-black/5 ring-emerald-100 hover:scale-[1.02]"
             >
-              {post.mainImage && (
+              {post?.mainImage && (
                 <div className="relative overflow-hidden rounded-2xl">
                   <img
                     alt={post.mainImage.alt || ''}
@@ -71,18 +60,18 @@ export default async function RecentArticles() {
               )}
               <div className="flex flex-1 flex-col p-8">
                 <div className="text-sm/5 text-emerald-700">
-                  {dayjs(post.publishedAt).fromNow()}
+                  {dayjs(post?.publishedAt).fromNow()}
                 </div>
                 <div className="mt-2 text-base/7 font-medium text-emerald-900">
                   <Link href={`/blog/${post.slug}`} className="hover:text-emerald-700 transition-colors">
                     <span className="absolute inset-0" />
-                    {post.title}
+                    {post?.title}
                   </Link>
                 </div>
                 <div className="mt-2 flex-1 text-sm/6 text-emerald-600">
-                  {truncateText(stripMarkdown(post.excerpt))}
+                  {truncateText(stripMarkdown(post?.excerpt))}
                 </div>
-                {post.author && (
+                {post?.author && (
                   <div className="mt-6 flex items-center gap-3">
                     {post.author.image && (
                       <img
@@ -92,7 +81,7 @@ export default async function RecentArticles() {
                       />
                     )}
                     <div className="text-sm/5 text-emerald-700">
-                      {post.author.name}
+                      {post?.author?.name}
                     </div>
                   </div>
                 )}
