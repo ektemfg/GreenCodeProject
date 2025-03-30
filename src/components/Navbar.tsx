@@ -13,6 +13,7 @@ import { PlusGrid, PlusGridItem, PlusGridRow } from '@/components/PlusGrid'
 
 const links = [
   { href: '/blog', label: 'Blog' },
+  { href: '/ai-chat', label: 'AI Chat' },
 ]
 
 function DesktopNav() {
