@@ -39,7 +39,7 @@ function Hero() {
         <Navbar
           banner={
             <Link
-              href="/blog/latest-green-coding-practices"
+              href="/blog"
               className="flex items-center gap-1 rounded-full bg-green-950/35 px-3 py-0.5 text-sm/6 font-medium text-white data-hover:bg-green-950/30"
             >
               Latest sustainable coding practices
